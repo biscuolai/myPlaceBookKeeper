@@ -2,8 +2,17 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+// hosting url: https://myplanbookkeeper.web.app
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig : {
+    apiKey: "AIzaSyAiekX6GrXTfpvJ93ZK3eGriUVsQpmdsQQ",
+    authDomain: "myplanbookkeeper.firebaseapp.com",
+    databaseURL: "https://myPlanBookKeeper.firebaseio.com",
+    projectId: "myplanbookkeeper",
+    storageBucket: "myplanbookkeeper.appspot.com",
+    messagingSenderId: "406863638795"
+  }
 };
 
 /*
