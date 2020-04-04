@@ -1,4 +1,37 @@
-<h1 class="display-5 text-center">Student Registration</h1>
+<h1 class="display-5 text-center">Student Form</h1>
+<div> 
+<form class="example-form" [formGroup]="form">
+    <div class="example-container">
+      <mat-form-field>
+        <input matInput formControlName="fullName" placeholder="Please enter the fullName">
+        <!-- <mat-error *ngIf="checkValidTouched('fullName')">fullName is required</mat-error> -->
+      </mat-form-field>
+      <mat-form-field >
+        <input matInput formControlName="branchName" placeholder="Please enter the branchName">
+      </mat-form-field>
+      <mat-form-field >
+        <input matInput formControlName="rollNo" placeholder="Please enter the rollNo">
+      </mat-form-field>
+      <mat-form-field >
+        <input matInput formControlName="guardianPhoneNo" placeholder="Please enter the guardianPhoneNo">
+      </mat-form-field>
+    </div>
+    <div>
+        <button mat-raised-button (click)="onSubmit()" color="primary">Submit</button>
+        <button mat-raised-button (click)="addStudent()" color="primary">Add new</button>
+    </div>
+  </form>
+  <div class="error" *ngIf="message">
+    <h5 class="text-success">{{ message }}</h5>
+    </div> 
+</div>
+
+<app-student-list></app-student-list>
+
+  <app-form-debug [form]="form"></app-form-debug>
+  
+
+<!-- <h1 class="display-5 text-center">Student Registration</h1>
 <div> </div>
  
 <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
@@ -30,4 +63,4 @@
  
 <div class="error" *ngIf="message">
     <h5 class="text-success">{{ message }}</h5>
-</div>
+</div> -->
