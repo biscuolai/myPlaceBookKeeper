@@ -4,7 +4,7 @@
 // import { ProviderFormComponent } from './components/provider-form/provider-form.component';
 // import { PolicyListComponent } from './components/policy-list/policy-list.component';
 // // import { StudentComponent } from './components/students/student.component';
-// import { StudentNotFoundComponent } from './components/student-not-found/student-not-found.component';
+// import { RecordNotFoundComponent } from './components/record-not-found/record-not-found.component';
 // import { StudentListComponent } from './components/student-list/student-list.component';
 // import { StudentComponent } from './components/students/student.component';
 // // import { AuthGuard } from './guards/auth.guard';
@@ -30,7 +30,7 @@
 // //     //     canActivate: [AuthGuard]
 // //     // },
 // //      { path: '', redirectTo: '/', pathMatch: 'full' },
-// //      { path: '**', component: StudentNotFoundComponent }
+// //      { path: '**', component: RecordNotFoundComponent }
 // // ];
 
 // const routes: Routes = [
@@ -38,7 +38,7 @@
 //     { path: 'student', component: StudentComponent },
 //     { path: 'student/:id', component: StudentComponent },
 //     { path: 'student-list', component: StudentListComponent },
-//     { path: '**', component: StudentNotFoundComponent }
+//     { path: '**', component: RecordNotFoundComponent }
 //   ];
 
 // @NgModule({

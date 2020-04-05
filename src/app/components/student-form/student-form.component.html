@@ -4,7 +4,7 @@
     <div class="example-container">
       <mat-form-field>
         <input matInput formControlName="fullName" placeholder="Please enter the fullName">
-        <!-- <mat-error *ngIf="checkValidTouched('fullName')">fullName is required</mat-error> -->
+        <mat-error *ngIf="checkValidTouched('fullName')">fullName is required</mat-error>
       </mat-form-field>
       <mat-form-field >
         <input matInput formControlName="branchName" placeholder="Please enter the branchName">
@@ -28,7 +28,7 @@
 
 <app-student-list></app-student-list>
 
-  <app-form-debug [form]="form"></app-form-debug>
+<app-form-debug [form]="form"></app-form-debug>
   
 
 <!-- <h1 class="display-5 text-center">Student Registration</h1>

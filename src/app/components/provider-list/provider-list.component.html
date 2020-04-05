@@ -1,0 +1,23 @@
+<h1 class="display-5 text-center">Provider Details</h1>
+<div> </div>
+ 
+<table class="table table-hover provider-details-table-width">
+    <thead align="center">
+        <th>ABN</th>
+        <th>Name</th>
+        <th>Edit?</th>
+        <th>Delete?</th>
+    </thead>
+    <tbody align="center">
+        <tr *ngFor="let providerInfo of providerList">
+            <td>{{providerInfo.abn}}</td>
+            <td>{{providerInfo.name}}</td>
+            <td><button [routerLink]="['/provider/', providerInfo.id]">Edit</button></td>
+            <td><button (click)="onDelete(providerInfo)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+ 
+<div class="error" *ngIf="deleteMessage">
+    <h5 class="text-dark">{{ deleteMessage }}</h5>
+</div>

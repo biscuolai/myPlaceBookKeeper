@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Student } from '../models/student.module';
+import { Student } from '../models/student.model';
 import { AngularFirestore } from '@angular/fire/firestore';
  
 @Injectable({

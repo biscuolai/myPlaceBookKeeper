@@ -18,13 +18,13 @@
 // import { SharedModule } from '../shared/shared.module';
 // import { ComponentRoutingModule } from './component.routing.module';
 // import { StudentComponent } from './students/student.component';
-// import { StudentNotFoundComponent } from './student-not-found/student-not-found.component';
+// import { RecordNotFoundComponent } from './record-not-found/record-not-found.component';
 // import { StudentService } from '../services/student.service';
 
 // @NgModule({
 //   declarations: [
 //     StudentComponent,
-//     StudentNotFoundComponent
+//     RecordNotFoundComponent
 //   ],
 //   imports: [
 //     CommonModule,

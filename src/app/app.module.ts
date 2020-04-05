@@ -19,9 +19,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 import { environment } from "../environments/environment";
-import { PolicyService } from './services/policy.service';
-import { PolicyListComponent } from './components/policy-list/policy-list.component';
-import { StudentComponent } from './components/students/student.component';
+import { ProviderService } from './services/provider.service';
+import { StudentComponent } from './components/student-form/student-form.component';
 import { StudentListComponent } from './components/student-list/student-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -33,15 +32,16 @@ import {
   MatInputModule 
 } from '@angular/material/input';
 import { SharedModule } from './shared/shared.module';
+import { ProviderListComponent } from './components/provider-list/provider-list.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProviderFormComponent,
-    PolicyListComponent,
     StudentComponent,
-    StudentListComponent
-    // Policy
+    StudentListComponent,
+    ProviderListComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +51,6 @@ import { SharedModule } from './shared/shared.module';
     AngularFireDatabaseModule,
     FormsModule,
     ReactiveFormsModule,
-
     SharedModule,
 
     // MatToolbarModule,
@@ -81,7 +80,7 @@ import { SharedModule } from './shared/shared.module';
   ],
   providers: [
     AngularFirestore,
-    PolicyService
+    ProviderService
   ],
   bootstrap: [AppComponent],
   //exports:[FormDebugComponent]

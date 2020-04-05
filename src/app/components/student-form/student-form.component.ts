@@ -1,18 +1,15 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { StudentService } from '../../services/student.service';
-import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { Student } from 'src/app/models/student.module';
+import { Student } from 'src/app/models/student.model';
 import { Router, ActivatedRoute } from '@angular/router';
-//import { FormValidators } from '../../utils/FormValidators';
-import { FormDebugComponent } from '../../shared/form-debug/form-debug.component';
 import { FormValidators } from 'src/app/utils/FormValidators';
  
 @Component({
-  selector: 'app-student',
-  templateUrl: './student.component.html',
-  styleUrls: ['./student.component.css']
+  selector: 'app-student-form',
+  templateUrl: './student-form.component.html',
+  styleUrls: ['./student-form.component.css']
 })
 export class StudentComponent implements OnInit, OnDestroy {
  
@@ -82,7 +79,7 @@ export class StudentComponent implements OnInit, OnDestroy {
                 this.student = studentList.find((document) => (document as Student).id == this.paramId);
                 
                 if (this.student === undefined) {
-                  this.router.navigate(['/student-not-found']);
+                  this.router.navigate(['/record-not-found']);
                 }
                 
                 delete this.student.id;
@@ -167,9 +164,9 @@ export class StudentComponent implements OnInit, OnDestroy {
   }
 
   // implements from iform-candeactivate
-  // canExitPage() {
-  //   return FormValidators.canExitPage(this.form);
-  // }
+  canExitPage() {
+    return FormValidators.canExitPage(this.form);
+  }
 
   checkValidTouched(fieldName) {
     FormValidators.checkValidTouched(this.form, fieldName);

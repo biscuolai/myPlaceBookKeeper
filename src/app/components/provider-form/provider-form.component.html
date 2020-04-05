@@ -1,1 +1,25 @@
-<p>provider-form works!</p>
+<h1 class="display-5 text-center">Provider Form</h1>
+<div> 
+<form class="example-form" [formGroup]="form">
+    <div class="example-container">
+      <mat-form-field>
+        <input matInput formControlName="abn" placeholder="Please enter the ABN">
+        <mat-error *ngIf="checkValidTouched('abn')">ABN is required</mat-error>
+      </mat-form-field>
+      <mat-form-field >
+        <input matInput formControlName="name" placeholder="Please enter the Provider Name">
+      </mat-form-field>
+    </div>
+    <div>
+        <button mat-raised-button (click)="onSubmit()" color="primary">Submit</button>
+        <button mat-raised-button (click)="addProvider()" color="primary">Add new</button>
+    </div>
+  </form>
+  <div class="error" *ngIf="message">
+    <h5 class="text-success">{{ message }}</h5>
+    </div> 
+</div>
+
+<app-provider-list></app-provider-list>
+
+<app-form-debug [form]="form"></app-form-debug>

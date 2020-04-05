@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../../services/student.service';
-import { Student } from '../../models/student.module';
+import { Student } from '../../models/student.model';
 import { AngularFirestore } from '@angular/fire/firestore';
  
 @Component({
@@ -28,26 +28,9 @@ export class StudentListComponent implements OnInit {
     });
   }
  
-  onEdit(student: Student) {
-    console.log(student);
-    this.service.formData = Object.assign({}, student);
-    //delete student.id;
-    //this.fireStore.doc('students/' + student.id).update(student);
-  }
- 
-  // updatePolicy(policy: Policy){
-  //   delete policy.id;
-  //   this.firestore.doc('policies/' + policy.id).update(policy);
-  // }
-
-  // deletePolicy(policyId: string){
-  //   this.firestore.doc('policies/' + policyId).delete();
-  // }
-
-
   onDelete(student: Student) {
     console.log(student);
-    this.fireStore.doc('students/' + student.id).delete();
+    this.service.deleteStudent(student.id);
     this.deleteMessage = student.fullName + ' information is successfully deleted!';
   }
 }

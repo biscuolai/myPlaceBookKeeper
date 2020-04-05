@@ -1,12 +1,12 @@
 // import { NgModule } from '@angular/core';
 // import { Routes, RouterModule } from '@angular/router';
 // import { StudentComponent } from './students/student.component';
-// import { StudentNotFoundComponent } from './student-not-found/student-not-found.component';
+// import { RecordNotFoundComponent } from './record-not-found/record-not-found.component';
 
 // const compomentRoutes: Routes = [
 //     { path: '', component: StudentComponent, children: [
 //         { path: 'new', component: StudentComponent },
-//         { path: 'notfound', component: StudentNotFoundComponent },
+//         { path: 'notfound', component: RecordNotFoundComponent },
 //         // { path: 'dashboard', component: MainDashboardComponent },
 //         { path: ':id', component: StudentComponent
 //         // , resolve: { task: TaskDetailsResolverGuard }
