@@ -1,7 +1,6 @@
 {
   "hosting": {
-    "site": "myplanbookkeeper",
-    "public": "dist",
+    "public": "dist/myPlaceBookKeeper",
     "ignore": [
       "firebase.json",
       "**/.*",
