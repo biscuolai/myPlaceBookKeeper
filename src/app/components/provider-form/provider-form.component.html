@@ -1,24 +1,46 @@
-<h1 class="display-5 text-center">Provider Form</h1>
-<div> 
 <form class="example-form" [formGroup]="form">
-    <div class="example-container">
-      <mat-form-field>
-        <input matInput formControlName="abn" placeholder="Please enter the ABN">
-        <mat-error *ngIf="checkValidTouched('abn')">ABN is required</mat-error>
-      </mat-form-field>
-      <mat-form-field >
-        <input matInput formControlName="name" placeholder="Please enter the Provider Name">
-      </mat-form-field>
-    </div>
-    <div>
-        <button mat-raised-button (click)="onSubmit()" color="primary">Submit</button>
-        <button mat-raised-button (click)="addProvider()" color="primary">Add new</button>
-    </div>
-  </form>
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Provider Information</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="example-container">
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput formControlName="abn" placeholder="ABN">
+              <mat-hint align="end">You can find the ABN number in the Tax invoice</mat-hint>
+              <mat-error *ngIf="checkValidTouched('abn')">ABN is required</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput formControlName="name" placeholder="Provider Name">
+              <mat-hint align="end">Please enter Provider's name</mat-hint>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <a color="primary" mat-raised-button (click)="onSubmit()">
+        <mat-icon>done</mat-icon>
+        <span>&nbsp;Save</span>
+      </a>
+      <a color="primary" mat-raised-button (click)="addProvider()">
+        <mat-icon>done</mat-icon>
+        <span>&nbsp;New Provider</span>
+      </a>
+      <!-- <button mat-raised-button (click)="onSubmit()" color="primary">Submit</button>
+      <button mat-raised-button (click)="addProvider()" color="primary">Add new</button> -->
+    </mat-card-actions>
+  </mat-card>
   <div class="error" *ngIf="message">
     <h5 class="text-success">{{ message }}</h5>
     </div> 
-</div>
+</form>
 
 <app-provider-list></app-provider-list>
 

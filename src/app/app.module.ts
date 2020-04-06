@@ -15,8 +15,8 @@ import { ProviderFormComponent } from './components/provider-form/provider-form.
 
 // Firebase / Firestore
 import { AngularFireModule } from "@angular/fire";
-import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { AngularFirestore } from '@angular/fire/firestore';
+// import { AngularFireDatabaseModule } from '@angular/fire/database';
+// import { AngularFirestore } from '@angular/fire/firestore';
 
 import { environment } from "../environments/environment";
 import { ProviderService } from './services/provider.service';
@@ -24,16 +24,20 @@ import { StudentComponent } from './components/student-form/student-form.compone
 import { StudentListComponent } from './components/student-list/student-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import {
-  // MatExpansionModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule,
-  // MatListModule, MatTableModule, MatPaginatorModule, MatSortModule, MatProgressSpinnerModule,
-  // MatFormFieldModule, MatRippleModule, MatNativeDateModule, MatGridListModule, MatCardModule,
-  // MatMenuModule, MatRadioModule, MatTabsModule, MatDialogModule, 
-  MatInputModule 
-} from '@angular/material/input';
+// import {
+//   // MatExpansionModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule,
+//   // MatListModule, MatTableModule, MatPaginatorModule, MatSortModule, MatProgressSpinnerModule,
+//   // MatFormFieldModule, MatRippleModule, MatNativeDateModule, MatGridListModule, MatCardModule,
+//   // MatMenuModule, MatRadioModule, MatTabsModule, MatDialogModule, 
+//   MatInputModule 
+// } from '@angular/material/input';
+
 import { SharedModule } from './shared/shared.module';
 import { ProviderListComponent } from './components/provider-list/provider-list.component';
-import { CommonModule } from '@angular/common';
+// import { CommonModule } from '@angular/common';
+import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
+import { MainNavigationComponent } from './components/main-navigation/main-navigation.component';
+import { MaterialModule } from './shared/modules/material.module';
 
 @NgModule({
   declarations: [
@@ -42,16 +46,20 @@ import { CommonModule } from '@angular/common';
     StudentComponent,
     StudentListComponent,
     ProviderListComponent,
+    MainNavigationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, 'myplacebookkeeping'),
+    // AngularFireDatabaseModule,
+    AngularFirestoreModule,
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
+
+    MaterialModule,
 
     // MatToolbarModule,
     // MatButtonModule,
@@ -64,7 +72,7 @@ import { CommonModule } from '@angular/common';
     // MatProgressSpinnerModule,
     // MatButtonModule,
     // MatFormFieldModule,
-     MatInputModule,
+    //  MatInputModule,
     // MatRippleModule,
   //  MatDatepickerModule,        // <----- import(must)
     // MatNativeDateModule,         // <----- import(optional)
@@ -78,9 +86,13 @@ import { CommonModule } from '@angular/common';
     // MatDialogModule
 
   ],
+  exports: [
+    AngularFireModule,
+    AngularFirestoreModule,
+  ],
   providers: [
-    AngularFirestore,
-    ProviderService
+    ProviderService,
+    { provide: FirestoreSettingsToken, useValue: {} }
   ],
   bootstrap: [AppComponent],
   //exports:[FormDebugComponent]
