@@ -28,11 +28,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //   // MatExpansionModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule,
 //   // MatListModule, MatTableModule, MatPaginatorModule, MatSortModule, MatProgressSpinnerModule,
 //   // MatFormFieldModule, MatRippleModule, MatNativeDateModule, MatGridListModule, MatCardModule,
-//   // MatMenuModule, MatRadioModule, MatTabsModule, MatDialogModule, 
-//   MatInputModule 
+//   // MatMenuModule, MatRadioModule, MatTabsModule, MatDialogModule,
+//   MatInputModule
 // } from '@angular/material/input';
 
-import { SharedModule } from './shared/shared.module';
+import { SharedModule } from './shared/components/shared.module';
 import { ProviderListComponent } from './components/provider-list/provider-list.component';
 // import { CommonModule } from '@angular/common';
 import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
