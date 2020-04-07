@@ -1,3 +1,4 @@
+import { PaymentService } from './services/payment.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -38,11 +39,13 @@ import { ProviderListComponent } from './components/provider-list/provider-list.
 import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
 import { MainNavigationComponent } from './components/main-navigation/main-navigation.component';
 import { MaterialModule } from './shared/modules/material.module';
+import { PaymentFormComponent } from './components/payment-form/payment-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProviderFormComponent,
+    PaymentFormComponent,
     StudentComponent,
     StudentListComponent,
     ProviderListComponent,
@@ -92,6 +95,7 @@ import { MaterialModule } from './shared/modules/material.module';
   ],
   providers: [
     ProviderService,
+    PaymentService,
     { provide: FirestoreSettingsToken, useValue: {} }
   ],
   bootstrap: [AppComponent],

@@ -1,3 +1,4 @@
+import { PaymentFormComponent } from './components/payment-form/payment-form.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { StudentComponent } from './components/student-form/student-form.component';
@@ -15,6 +16,8 @@ const routes: Routes = [
   { path: 'provider', component: ProviderFormComponent },
   { path: 'provider/:id', component: ProviderFormComponent },
   { path: 'provider-list', component: ProviderListComponent },
+  { path: 'payment', component: PaymentFormComponent },
+  { path: 'payment/:id', component: PaymentFormComponent },
   { path: '**', component: RecordNotFoundComponent }
 ];
 

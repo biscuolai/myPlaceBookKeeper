@@ -1,0 +1,85 @@
+<form class="example-form" [formGroup]="form">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Payment Information</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="example-container">
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput [matDatepicker]="picker" formControlName="date" placeholder="date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <mat-error *ngIf="checkValidTouched('date')">Date is required</mat-error>
+            </mat-form-field>
+                    <!-- <mat-form-field class="full-width">
+              <input matInput formControlName="date" placeholder="Date of Support">
+              <mat-hint align="end">Date of Support</mat-hint>
+              <mat-error *ngIf="checkValidTouched('abn')">Date is required</mat-error>
+            </mat-form-field> -->
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput formControlName="description" placeholder="description">
+              <mat-hint align="end">Please enter description</mat-hint>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput formControlName="amount" placeholder="amount">
+              <mat-hint align="end">Please enter amount</mat-hint>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput formControlName="price" placeholder="price">
+              <mat-hint align="end">Please enter price</mat-hint>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput formControlName="payment" placeholder="payment">
+              <mat-hint align="end">Please enter payment</mat-hint>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput formControlName="supportBudget" placeholder="supportBudget">
+              <mat-hint align="end">Please enter supportBudget</mat-hint>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <a color="primary" mat-raised-button (click)="onSubmit()">
+        <mat-icon>done</mat-icon>
+        <span>&nbsp;Save</span>
+      </a>
+      <a color="primary" mat-raised-button (click)="addPayment()">
+        <mat-icon>done</mat-icon>
+        <span>&nbsp;New Payment</span>
+      </a>
+      <!-- <button mat-raised-button (click)="onSubmit()" color="primary">Submit</button>
+      <button mat-raised-button (click)="addPayment()" color="primary">Add new</button> -->
+    </mat-card-actions>
+  </mat-card>
+  <div class="error" *ngIf="message">
+    <h5 class="text-success">{{ message }}</h5>
+    </div>
+</form>
+
+<!-- <app-payment-list></app-payment-list> -->
+
+<app-form-debug [form]="form"></app-form-debug>

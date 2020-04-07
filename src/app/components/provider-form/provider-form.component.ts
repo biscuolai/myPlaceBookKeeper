@@ -20,7 +20,7 @@ export class ProviderFormComponent implements OnInit {
   paramSubscription: Subscription;
   providerSubscription: Subscription;
 
-  // module 
+  // module
   provider: Provider;
 
   // parameter from the url - id configured in routing
@@ -29,8 +29,7 @@ export class ProviderFormComponent implements OnInit {
   message: string;
 
   constructor(
-    private providerService: ProviderService, 
-    //private fireStore: AngularFirestore,
+    private providerService: ProviderService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router
@@ -42,7 +41,7 @@ export class ProviderFormComponent implements OnInit {
       abn: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
       name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
     });
-    
+
     this.paramSubscription = this.route.params.subscribe(
       (params: any) => {
 
@@ -63,21 +62,21 @@ export class ProviderFormComponent implements OnInit {
                 console.log('data', response);
 
                 let providerList: Provider[];
-    
+
                 providerList = response.map(document => {
                   return {
                     id: document.payload.doc.id,
                     ...document.payload.doc.data() as {}    // Attention - Require typescript version >3 to work!!
                   } as Provider;
                 })
-    
+
                 // Sorting the provider-list in ascending order.
                 this.provider = providerList.find((document) => (document as Provider).id == this.paramId);
-                
+
                 if (this.provider === undefined) {
                   this.router.navigate(['/record-not-found']);
                 }
-                
+
                 delete this.provider.id;
                 this.form.setValue(this.provider);
 
@@ -86,7 +85,6 @@ export class ProviderFormComponent implements OnInit {
         }
       }
     );
-
   }
 
   addProvider() {
@@ -100,7 +98,6 @@ export class ProviderFormComponent implements OnInit {
       abn: '',
       name: ''
     });
-
   }
 
   onSubmit() {
@@ -112,10 +109,10 @@ export class ProviderFormComponent implements OnInit {
 
     // Reset the message value.
     this.message = '';
- 
+
     // Making the copy of the form and assigning it to the providerData.
     let providerData = Object.assign({}, this.form.value);
- 
+
     console.log(this.form.value);
 
     // Does the insert operation.
@@ -128,7 +125,7 @@ export class ProviderFormComponent implements OnInit {
       this.providerService.updateProvider(providerData, this.paramId);
       this.message = 'Provider successfully updated!';
     }
- 
+
     // Reset the form if the operation is successful.
     this.resetForm();
 
@@ -145,7 +142,7 @@ export class ProviderFormComponent implements OnInit {
   checkValidTouched(fieldName) {
     FormValidators.checkValidTouched(this.form, fieldName);
   }
- 
+
   ngOnDestroy() {
     if (this.paramSubscription != null) {
       this.paramSubscription.unsubscribe();
