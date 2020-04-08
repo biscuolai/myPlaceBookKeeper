@@ -1,3 +1,6 @@
+import {NgModule} from '@angular/core';
+
+import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -14,11 +17,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatToolbarModule } from '@angular/material/toolbar';
-
-import {NgModule} from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatNativeDateModule } from '@angular/material/core';
-import { MatMomentDateModule } from "@angular/material-moment-adapter";
 
 @NgModule({
   imports: [
@@ -40,7 +40,7 @@ import { MatMomentDateModule } from "@angular/material-moment-adapter";
     MatSidenavModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatMomentDateModule,
+    MatSelectModule,
   ],
   exports: [
     MatButtonModule,
@@ -61,7 +61,7 @@ import { MatMomentDateModule } from "@angular/material-moment-adapter";
     MatSidenavModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatMomentDateModule,
+    MatSelectModule,
   ],
 })
 

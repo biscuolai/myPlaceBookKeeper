@@ -13,11 +13,6 @@
               <mat-datepicker #picker></mat-datepicker>
               <mat-error *ngIf="checkValidTouched('date')">Date is required</mat-error>
             </mat-form-field>
-                    <!-- <mat-form-field class="full-width">
-              <input matInput formControlName="date" placeholder="Date of Support">
-              <mat-hint align="end">Date of Support</mat-hint>
-              <mat-error *ngIf="checkValidTouched('abn')">Date is required</mat-error>
-            </mat-form-field> -->
           </div>
         </div>
         <div class="row">
@@ -46,17 +41,29 @@
         </div>
         <div class="row">
           <div class="col">
-            <mat-form-field class="full-width">
-              <input matInput formControlName="provider" placeholder="provider">
-              <mat-hint align="end">Please enter provider</mat-hint>
+
+            <mat-form-field>
+              <mat-label>Please select provider</mat-label>
+              <mat-select formControlName="provider">
+                <mat-option *ngFor="let provider of providerList" [value]="provider.id">
+                  {{provider.name}}
+                </mat-option>
+              </mat-select>
             </mat-form-field>
+
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <mat-form-field class="full-width">
-              <input matInput formControlName="supportBudget" placeholder="supportBudget">
-              <mat-hint align="end">Please enter supportBudget</mat-hint>
+
+
+            <mat-form-field>
+              <mat-label>Please select support budget</mat-label>
+              <mat-select formControlName="supportBudget">
+                <mat-option *ngFor="let supportBudget of supportBudgetList" [value]="supportBudget.id">
+                  {{supportBudget.category}}
+                </mat-option>
+              </mat-select>
             </mat-form-field>
           </div>
         </div>

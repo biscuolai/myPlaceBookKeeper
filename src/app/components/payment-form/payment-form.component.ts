@@ -1,3 +1,6 @@
+import { SupportBudgetService } from './../../services/support-budget.service';
+import { ProviderService } from './../../services/provider.service';
+import { Provider } from './../../models/provider.model';
 import { Payment } from './../../models/payment.model';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
@@ -9,6 +12,7 @@ import { FormValidators } from 'src/app/utils/FormValidators';
 // Datepicker libraries
 import { DateAdapter, MAT_DATE_FORMATS } from "@angular/material/core";
 import { AppDateAdapter, APP_DATE_FORMATS} from './../../utils/date.adapter';
+import { SupportBudget } from './../../models/support-budget.model';
 
 @Component({
   selector: 'app-payment-form',
@@ -31,6 +35,8 @@ export class PaymentFormComponent implements OnInit {
   // Subscription variables
   paramSubscription: Subscription;
   paymentSubscription: Subscription;
+  providerSubscription: Subscription;
+  supportBudgetSubscription: Subscription;
 
   // module
   payment: Payment;
@@ -40,8 +46,13 @@ export class PaymentFormComponent implements OnInit {
 
   message: string;
 
+  providerList: Provider[];
+  supportBudgetList: SupportBudget[];
+
   constructor(
     private paymentService: PaymentService,
+    private providerService: ProviderService,
+    private supportBudgetService: SupportBudgetService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router
@@ -57,6 +68,9 @@ export class PaymentFormComponent implements OnInit {
       provider: ['', [Validators.required]],
       supportBudget: ['', [Validators.required]],
     });
+
+    this.getProvidersDropDown();
+    this.getSupportBudgetsDropdown();
 
     this.paramSubscription = this.route.params.subscribe(
       (params: any) => {
@@ -99,6 +113,44 @@ export class PaymentFormComponent implements OnInit {
               }
             );
         }
+      }
+    );
+  }
+
+  getProvidersDropDown(): void {
+    this.providerSubscription = this.providerService.getProviders()
+    .subscribe(
+      (response: any) => {
+
+        console.log('data', response);
+
+        this.providerList = response.map(document => {
+          return {
+            id: document.payload.doc.id,
+            ...document.payload.doc.data() as {}    // Attention - Require typescript version >3 to work!!
+          } as Payment;
+        })
+
+        this.providerList.map((val: Provider) => val.id = 'providers/' + val.id);
+      }
+    );
+  }
+
+  getSupportBudgetsDropdown(): void {
+    this.supportBudgetSubscription = this.supportBudgetService.getAllSupportBudget()
+    .subscribe(
+      (response: any) => {
+
+        console.log('data', response);
+
+        this.supportBudgetList = response.map(document => {
+          return {
+            id: document.payload.doc.id,
+            ...document.payload.doc.data() as {}    // Attention - Require typescript version >3 to work!!
+          } as SupportBudget;
+        })
+
+        this.supportBudgetList.map((val: SupportBudget) => val.id = 'supportBudget/' + val.id);
       }
     );
   }
@@ -170,6 +222,12 @@ export class PaymentFormComponent implements OnInit {
     }
     if (this.paymentSubscription != null) {
       this.paymentSubscription.unsubscribe();
+    }
+    if (this.providerSubscription != null) {
+      this.providerSubscription.unsubscribe();
+    }
+    if (this.supportBudgetSubscription != null) {
+      this.supportBudgetSubscription.unsubscribe();
     }
   }
 
