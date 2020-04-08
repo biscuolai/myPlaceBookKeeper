@@ -1,5 +1,6 @@
 import { Provider } from './provider.model';
 import { SupportBudget } from './support-budget.model';
+import { firestore } from 'firebase';
 
 export class Payment {
   id: string;
@@ -7,6 +8,6 @@ export class Payment {
   description: string;
   amount: number;
   price: number;
-  provider: Provider;
-  supportBudget: SupportBudget;
+  provider: string;
+  supportBudget: string;
 }

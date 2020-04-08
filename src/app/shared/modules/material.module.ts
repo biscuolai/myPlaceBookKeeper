@@ -13,10 +13,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import {NgModule} from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatMomentDateModule } from "@angular/material-moment-adapter";
 
 @NgModule({
   imports: [
@@ -37,6 +39,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatToolbarModule,
     MatSidenavModule,
     MatDatepickerModule,
+    MatNativeDateModule,
+    MatMomentDateModule,
   ],
   exports: [
     MatButtonModule,
@@ -56,6 +60,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatToolbarModule,
     MatSidenavModule,
     MatDatepickerModule,
+    MatNativeDateModule,
+    MatMomentDateModule,
   ],
 })
 

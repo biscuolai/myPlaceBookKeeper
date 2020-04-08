@@ -7,31 +7,21 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormValidators } from 'src/app/utils/FormValidators';
 
 // Datepicker libraries
-import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
-import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
-
-// Depending on whether rollup is used, moment needs to be imported differently.
-// Since Moment.js doesn't have a default export, we normally need to import using the `* as`
-// syntax. However, rollup creates a synthetic default module and we thus need to import it using
-// the `default as` syntax.
-import * as _moment from 'moment';
-const moment = _moment;
+import { DateAdapter, MAT_DATE_FORMATS } from "@angular/material/core";
+import { AppDateAdapter, APP_DATE_FORMATS} from './../../utils/date.adapter';
 
 @Component({
   selector: 'app-payment-form',
   templateUrl: './payment-form.component.html',
   styleUrls: ['./payment-form.component.css'],
   providers: [
-    // The locale would typically be provided on the root module of your application. We do it at
-    // the component level here, due to limitations of our example generation script.
-    {provide: MAT_DATE_LOCALE, useValue: 'en-AU'},
-
-    // `MomentDateAdapter` and `MAT_MOMENT_DATE_FORMATS` can be automatically provided by importing
-    // `MatMomentDateModule` in your applications root module. We provide it at the component level
-    // here, due to limitations of our example generation script.
-    {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
-    {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
-  ],
+    {
+        provide: DateAdapter, useClass: AppDateAdapter
+    },
+    {
+        provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS
+    }
+  ]
 })
 export class PaymentFormComponent implements OnInit {
 
@@ -60,11 +50,11 @@ export class PaymentFormComponent implements OnInit {
   ngOnInit(): void {
 
     this.form = this.formBuilder.group({
-      date: ['', [Validators.required]],
+      date: [null, [Validators.required]],
       description: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
-      amount: ['', null],
-      price: ['', [Validators.required]],
-      payment: ['', [Validators.required]],
+      amount: [0, null],
+      price: [0, [Validators.required]],
+      provider: ['', [Validators.required]],
       supportBudget: ['', [Validators.required]],
     });
 
@@ -121,25 +111,13 @@ export class PaymentFormComponent implements OnInit {
   private resetForm() {
     this.form.reset();
 
-    // set default Due Date to next month
-    const today = new Date();
-    //today.setMonth(today.getMonth() + 1);
-    //const dueDateYear = today.getFullYear();
-    //const dueDateMonth = today.getMonth();
-    //const dueDateDay = today.getDate();
-
-    // today.setMonth(today.getMonth() - 1);
-    const todayYear = today.getFullYear();
-    const todayMonth = today.getMonth();
-    const todayDay = today.getDate();
-
     this.form.patchValue({
-      date: moment([todayYear, todayMonth, todayDay]),
+      date: new Date(),
       description: '',
       amount: 0,
       price: 0,
-      provider: '',
-      supportBudget: ''
+      provider: 'providers/UXoIkl9z4mkmihCGt1BD',
+      supportBudget: 'supportBudget/3XtFDq4oJdNxRgHISYbO'
     });
   }
 
