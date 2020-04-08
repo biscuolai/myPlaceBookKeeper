@@ -1,5 +1,5 @@
-import { Provider } from './provider.model';
-import { SupportBudget } from './support-budget.model';
+import { Provider } from './../../provider/model/provider.model';
+import { SupportBudget } from './../../support-budget/model/support-budget.model';
 import { firestore } from 'firebase';
 
 export class Payment {

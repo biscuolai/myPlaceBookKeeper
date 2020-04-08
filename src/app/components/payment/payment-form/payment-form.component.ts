@@ -1,18 +1,18 @@
-import { SupportBudgetService } from './../../services/support-budget.service';
-import { ProviderService } from './../../services/provider.service';
-import { Provider } from './../../models/provider.model';
-import { Payment } from './../../models/payment.model';
+import { SupportBudgetService } from '../../support-budget/service/support-budget.service';
+import { ProviderService } from '../../provider/service/provider.service';
+import { Provider } from '../../provider/model/provider.model';
+import { Payment } from '../model/payment.model';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { PaymentService } from 'src/app/services/payment.service';
+import { PaymentService } from 'src/app/components/payment/service/payment.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormValidators } from 'src/app/utils/FormValidators';
 
 // Datepicker libraries
 import { DateAdapter, MAT_DATE_FORMATS } from "@angular/material/core";
-import { AppDateAdapter, APP_DATE_FORMATS} from './../../utils/date.adapter';
-import { SupportBudget } from './../../models/support-budget.model';
+import { AppDateAdapter, APP_DATE_FORMATS} from '../../../utils/date.adapter';
+import { SupportBudget } from './../../support-budget/model/support-budget.model';
 
 @Component({
   selector: 'app-payment-form',
