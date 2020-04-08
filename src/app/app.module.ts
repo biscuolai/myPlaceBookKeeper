@@ -1,6 +1,5 @@
 import { PaymentModule } from './components/payment/payment.module';
 import { ProviderModule } from './components/provider/provider.module';
-import { PaymentService } from './components/payment/service/payment.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -12,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 // Custom modules
 import { MaterialModule } from './shared/modules/material.module';
 import { SharedModule } from './shared/components/shared.module';
+import { SupportBudgetModule } from './components/support-budget/support-budget.module';
 
 // Firebase / Firestore
 import { AngularFireModule } from "@angular/fire";
@@ -40,7 +40,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SharedModule,
     MaterialModule,
     ProviderModule,
-    PaymentModule
+    PaymentModule,
+    SupportBudgetModule
   ],
   exports: [
     AngularFireModule,

@@ -1,3 +1,4 @@
+import { RecordNotFoundComponent } from './record-not-found/record-not-found.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormDebugComponent } from './form-debug/form-debug.component';
@@ -9,10 +10,12 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   declarations: [
-    FormDebugComponent
+    FormDebugComponent,
+    RecordNotFoundComponent,
   ],
   exports: [
-    FormDebugComponent
+    FormDebugComponent,
+    RecordNotFoundComponent,
   ],
   providers: []
 })
