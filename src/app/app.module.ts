@@ -1,3 +1,5 @@
+import { ListUploadComponent } from './components/fileupload/list-upload/list-upload.component';
+import { FormUploadComponent } from './components/fileupload/form-upload/form-upload.component';
 import { PaymentModule } from './components/payment/payment.module';
 import { ProviderModule } from './components/provider/provider.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,11 +24,14 @@ import { MainNavigationComponent } from './components/main-navigation/main-navig
 
 import { environment } from "../environments/environment";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainNavigationComponent
+    MainNavigationComponent,
+    //FormUploadComponent,
+    //ListUploadComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +40,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
     AngularFireModule.initializeApp(environment.firebaseConfig, 'myplacebookkeeping'),
     AngularFirestoreModule,
+    AngularFireDatabaseModule,
+
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
