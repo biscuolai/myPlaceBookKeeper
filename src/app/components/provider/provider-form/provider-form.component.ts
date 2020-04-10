@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { Provider } from '../model/provider.model';
-import { ProviderService } from '../service/provider.service';
+import { Provider } from '../models/provider.model';
+import { ProviderService } from '../services/provider.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormValidators } from './../../../utils/FormValidators';
 

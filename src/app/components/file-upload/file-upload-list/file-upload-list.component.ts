@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { UploadFileService } from '../upload-file.service';
-import { FileUpload } from '../upload-file.model';
+import { UploadFileService } from '../services/file-upload.service';
+import { FileUpload } from '../models/file-upload.model';
 
 @Component({
-  selector: 'list-upload',
-  templateUrl: './list-upload.component.html',
-  styleUrls: ['./list-upload.component.css']
+  selector: 'file-upload-list',
+  templateUrl: './file-upload-list.component.html',
+  styleUrls: ['./file-upload-list.component.css']
 })
 export class ListUploadComponent implements OnInit {
 

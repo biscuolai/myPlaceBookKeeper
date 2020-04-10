@@ -1,15 +1,9 @@
-import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
-import { Injectable, OnInit } from '@angular/core';
-import { AngularFireList, AngularFireDatabase } from '@angular/fire/database';
-//import * as firebase from 'firebase/app';
-//import 'firebase/storage';
+import { Injectable } from '@angular/core';
 
-import { FileUpload } from './upload-file.model';
+import { FileUpload } from './../models/file-upload.model';
 import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
 import { AngularFirestore  } from '@angular/fire/firestore';
-import { tap, finalize } from 'rxjs/operators';
-//import * as firebase from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -50,7 +44,8 @@ export class UploadFileService {
 
         progress.percentage = Math.round((response.bytesTransferred / response.totalBytes) * 100);
 
-        if (response.metadata !== null && progress.percentage == 100 && !this.isActive(response.metadata))
+        if ((response.metadata !== null && progress.percentage == 100) ||
+            (response.task.metadata_ !== null && progress.percentage == 100))
         {
           console.log('metadata', response.metadata);
           //console.log('File available at', response.metadata.fullPath);

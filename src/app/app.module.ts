@@ -1,7 +1,3 @@
-import { ListUploadComponent } from './components/fileupload/list-upload/list-upload.component';
-import { FormUploadComponent } from './components/fileupload/form-upload/form-upload.component';
-import { PaymentModule } from './components/payment/payment.module';
-import { ProviderModule } from './components/provider/provider.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -14,6 +10,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './shared/modules/material.module';
 import { SharedModule } from './shared/components/shared.module';
 import { SupportBudgetModule } from './components/support-budget/support-budget.module';
+//import { FileUploadModule } from './components/file-upload/file-upload.module';
+import { PaymentModule } from './components/payment/payment.module';
+import { ProviderModule } from './components/provider/provider.module';
 
 // Firebase / Firestore
 import { AngularFireModule } from "@angular/fire";
@@ -30,8 +29,6 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
   declarations: [
     AppComponent,
     MainNavigationComponent,
-    //FormUploadComponent,
-    //ListUploadComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +45,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     MaterialModule,
     ProviderModule,
     PaymentModule,
-    SupportBudgetModule
+    SupportBudgetModule,
+    //FileUploadModule
   ],
   exports: [
     AngularFireModule,

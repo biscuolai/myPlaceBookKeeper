@@ -1,11 +1,11 @@
 import { SupportBudgetService } from '../../support-budget/service/support-budget.service';
-import { ProviderService } from '../../provider/service/provider.service';
-import { Provider } from '../../provider/model/provider.model';
-import { Payment } from '../model/payment.model';
+import { ProviderService } from '../../provider/services/provider.service';
+import { Provider } from '../../provider/models/provider.model';
+import { Payment } from '../models/payment.model';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { PaymentService } from 'src/app/components/payment/service/payment.service';
+import { PaymentService } from 'src/app/components/payment/services/payment.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormValidators } from 'src/app/utils/FormValidators';
 

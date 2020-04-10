@@ -1,23 +1,23 @@
-body,
+ body,
 input[text],
 button {
   color: rgb(255, 255, 255);
-  font-family: Cambria, Georgia;
+  /*font-family: Cambria, Georgia;*/
 }
-
+/*
 a {
   cursor: pointer;
   cursor: hand;
 }
-
+ */
 button {
-  font-family: Arial;
+  /* font-family: Arial; */
   background-color: #3f51b5;
   border: none;
   padding: 5px 10px;
   border-radius: 4px;
-  cursor: pointer;
-  cursor: hand;
+  /* cursor: pointer;
+  cursor: hand; */
 }
 
 button:hover {
@@ -34,10 +34,10 @@ button:disabled {
 /* everywhere else */
 
 * {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.glyphicon-none:before {
+/* .glyphicon-none:before {
   content: "\e013";
   color: transparent !important;
 }
@@ -60,7 +60,6 @@ body, .container-fluid, .flex-layout
 
 .flex-scroll-content {
     overflow-y: auto;
-    /*for IE10*/
     -ms-flex-shrink: 1;
     flex-shrink: 1;
     min-height: 85px;
@@ -70,10 +69,8 @@ body, .container-fluid, .flex-layout
     -ms-flex: 2;
     flex: 2;
     margin-bottom:10px;
-    /*border: solid 1px;*/
-    /*padding:5px;*/
 }
-
+ */
 
 /* TABLE STYLING */
 .custom-table {
@@ -93,8 +90,8 @@ body, .container-fluid, .flex-layout
         border-left: 1px solid #D7D7D7;
         color: #5C5C5C;
         font-size: 13px;
-        height: 40px;
-        line-height: 40px;
+        height: 30px;
+        line-height: 30px;
         text-align: left;
         white-space: nowrap;
     }
@@ -109,9 +106,9 @@ body, .container-fluid, .flex-layout
         width: 15px;
     }
 
-    .custom-table .th-checkbox, .custom-table .td-checkbox {
+    /* .custom-table .th-checkbox, .custom-table .td-checkbox {
         width: 20px;
-    }
+    }  */
 
     .custom-table .btn-default {
         border: none;
@@ -130,22 +127,22 @@ body, .container-fluid, .flex-layout
     }
 
     .custom-table tbody td, table.no-border tbody td {
-        height: 50px;
-        font-size: 11px;
+        height: 30px;
+        font-size: 13px;
+     }
+
+     .custom-table tbody td .center, table.no-border tbody td .center {
+        text-align: center;
     }
 
-        .custom-table tbody td .center, table.no-border tbody td .center {
-            text-align: center;
-        }
-
-    .custom-table tbody .td-checkbox {
+    /* .custom-table tbody .td-checkbox {
         padding: 0;
     }
 
         .custom-table tbody .td-checkbox input {
             margin-left: 3px;
             width: 15px;
-        }
+        } */
 
 .custom-table thead th span {
     padding-right: 20px;
