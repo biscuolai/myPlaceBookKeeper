@@ -10,7 +10,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './shared/modules/material.module';
 import { SharedModule } from './shared/components/shared.module';
 import { SupportBudgetModule } from './components/support-budget/support-budget.module';
-//import { FileUploadModule } from './components/file-upload/file-upload.module';
 import { PaymentModule } from './components/payment/payment.module';
 import { ProviderModule } from './components/provider/provider.module';
 
@@ -25,10 +24,23 @@ import { environment } from "../environments/environment";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 
+// Custom authentication services / components
+import { AuthService } from './auth/services/auth.service';
+import { SignInComponent } from './auth/sign-in/sign-in.component';
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
 @NgModule({
   declarations: [
     AppComponent,
     MainNavigationComponent,
+
+    SignInComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent
   ],
   imports: [
     BrowserModule,
@@ -38,21 +50,23 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     AngularFireModule.initializeApp(environment.firebaseConfig, 'myplacebookkeeping'),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
+    AngularFireAuthModule,
 
     FormsModule,
     ReactiveFormsModule,
+
     SharedModule,
     MaterialModule,
     ProviderModule,
     PaymentModule,
     SupportBudgetModule,
-    //FileUploadModule
   ],
   exports: [
     AngularFireModule,
     AngularFirestoreModule,
   ],
   providers: [
+    AuthService,
     { provide: FirestoreSettingsToken, useValue: {} }
   ],
   bootstrap: [AppComponent]
