@@ -1,6 +1,8 @@
-import { NativeDateAdapter } from "@angular/material/core";
+//import { NativeDateAdapter } from "@angular/material/core";
 
-export class AppDateAdapter extends NativeDateAdapter {
+export class AppDateAdapter
+//extends NativeDateAdapter
+{
 
     parse(value: any): Date | null {
         if ((typeof value === 'string') && (value.indexOf('/') > -1)) {

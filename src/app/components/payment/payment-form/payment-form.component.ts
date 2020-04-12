@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormValidators } from 'src/app/utils/FormValidators';
 
 // Datepicker libraries
-import { DateAdapter, MAT_DATE_FORMATS } from "@angular/material/core";
+//import { DateAdapter, MAT_DATE_FORMATS } from "@angular/material/core";
 import { AppDateAdapter, APP_DATE_FORMATS} from '../../../utils/date.adapter';
 import { SupportBudget } from './../../support-budget/model/support-budget.model';
 
@@ -18,14 +18,14 @@ import { SupportBudget } from './../../support-budget/model/support-budget.model
   selector: 'app-payment-form',
   templateUrl: './payment-form.component.html',
   styleUrls: ['./payment-form.component.css'],
-  providers: [
-    {
-        provide: DateAdapter, useClass: AppDateAdapter
-    },
-    {
-        provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS
-    }
-  ]
+  // providers: [
+  //   {
+  //       provide: DateAdapter, useClass: AppDateAdapter
+  //   },
+  //   {
+  //       provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS
+  //   }
+  // ]
 })
 export class PaymentFormComponent implements OnInit {
 

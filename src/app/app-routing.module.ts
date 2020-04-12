@@ -19,17 +19,17 @@ const routes: Routes = [
   {
     path: 'provider',
     loadChildren: () => import('./components/provider/provider.routing.module').then(m => m.ProviderRoutingModule),
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
   {
     path: 'payment',
     loadChildren: () => import('./components/payment/payment.routing.module').then(m => m.PaymentRoutingModule),
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
   {
     path: 'support-budget',
     loadChildren: () => import('./components/support-budget/support-budget.routing.module').then(m => m.SupportBudgetRoutingModule),
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
 
   { path: '**', component: RecordNotFoundComponent }

@@ -31,7 +31,7 @@ export class AuthService {
         console.log('set user');
         console.log('login successful', this.showMainNavigation);
         this.showMainNavigation.emit('true');
-        this.router.navigate(['payment']);
+        //this.router.navigate(['payment']);
       } else {
         console.log('login failed/logout', this.showMainNavigation);
         this.showMainNavigation.emit('false');

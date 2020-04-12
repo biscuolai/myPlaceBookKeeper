@@ -1,10 +1,64 @@
+<div class="app">
+  <header>
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark " style="background-color: #212121;">
+      <a class="navbar-brand" routerLink="/">
+        <span class="mr-1" style="color:white">myPlan NDIS Book Keeper</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+        aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/">
+              <i class="fas fa-home mr-1"></i>home
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/payment">
+              <i class="far fa-question-circle mr-1"></i>Payments
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/provider">
+              <i class="fas fa-envelope mr-1"></i>Providers
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/sign-out">
+              <i class="fas fa-user mr-1"></i>Sign out
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <p class="text-center text-white">&copy; 2020 - Ilson Biscuola</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!-- Main router outlet -->
 
 <!-- <app-main-navigation [showNav]="showMainNavigation"> -->
-<app-main-navigation>
-    <!-- Main router outlet -->
+<!-- <app-main-navigation>
   <router-outlet></router-outlet>
-</app-main-navigation>
+</app-main-navigation> -->
 
 <!-- <app-main-navigation></app-main-navigation> -->
 

@@ -1,4 +1,4 @@
-<table class="table-striped table-hover custom-table">
+<table class="table table-striped table-bordered table-hover table-sm">
   <thead>
     <tr>
         <!-- <th *ngFor="let column of fileUploads">
@@ -10,9 +10,9 @@
       <th>Delete?</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody align="center">
     <tr *ngFor="let file of fileUploads">
-      <td>
+      <td class="files">
         <a href="{{file.downloadURL}}">{{file.fullPath}}</a>
       </td>
       <!-- <td>
@@ -22,7 +22,7 @@
         {{file.totalBytes / 1000 | number }} <span>Kb</span>
       </td>
       <td>
-        <button (click)='deleteFile(file)' class="btn btn-danger btn-xs" style="float: right">Delete</button>
+        <input class="btn btn-primary btn-sm" type="button" value="Delete" (click)='deleteFile(file)'/>
       </td>
     </tr>
   </tbody>

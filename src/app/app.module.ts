@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 
 // Custom modules
-import { MaterialModule } from './shared/modules/material.module';
+//import { MaterialModule } from './shared/modules/material.module';
 import { SharedModule } from './shared/components/shared.module';
 import { SupportBudgetModule } from './components/support-budget/support-budget.module';
 import { PaymentModule } from './components/payment/payment.module';
@@ -35,7 +35,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 @NgModule({
   declarations: [
     AppComponent,
-    MainNavigationComponent,
+    //MainNavigationComponent,
 
     SignInComponent,
     SignUpComponent,
@@ -56,7 +56,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     ReactiveFormsModule,
 
     SharedModule,
-    MaterialModule,
+    //MaterialModule,
     ProviderModule,
     PaymentModule,
     SupportBudgetModule,

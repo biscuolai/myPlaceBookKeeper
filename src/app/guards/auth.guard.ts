@@ -32,7 +32,7 @@ export class AuthGuard implements CanActivate, CanLoad {
     }
     else {
       // user is not authenticated then redirect to login page
-      this.router.navigate(['sign-in']);
+      //this.router.navigate(['sign-in']);
       return false;
     }
   }

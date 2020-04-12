@@ -1,93 +1,27 @@
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>Payment Information</mat-card-title>
-    </mat-card-header>
-    <form [formGroup]="form">
-      <mat-form-field class="full-width">
-        <input matInput formControlName="username" placeholder="username">
-        <mat-hint align="end">Please enter description</mat-hint>
-      </mat-form-field>
-      <mat-form-field class="full-width">
-        <input matInput formControlName="password" placeholder="password">
-        <mat-hint align="end">Please enter description</mat-hint>
-      </mat-form-field>
-      <mat-card-actions>
-      <!-- Calling SignIn Api from AuthService -->
-      <div>
-        <input mat-raised-button type="button" class="Primary" value="Log in" (click)="signIn()">
-      </div>
-
-      <div>
-        <span class="or"><span class="orInner">Or</span></span>
-      </div>
-
-      <!-- Calling GoogleAuth Api from AuthService -->
-      <div>
-        <button mat-raised-button type="button" class="btn googleBtn" (click)="googleAuth()">
-          <!-- <i class="fab fa-google-plus-g"></i> -->
-          Log in with Google
-        </button>
-      </div>
-
-      <div>
-        <span routerLink="/forgot-password">Forgot Password?</span>
-      </div>
-
-      <div class="redirectToLogin">
-        <span>Don't have an account?
-          <span class="redirect" routerLink="/register-user"> Sign Up</span>
-        </span>
-      </div>
-
-
-
-
-        <!-- <a color="primary" mat-raised-button (click)="onSubmit()">
-          <mat-icon>done</mat-icon>
-          <span>&nbsp;Save</span>
-        </a>
-        <a color="primary" mat-raised-button (click)="addPayment()">
-          <mat-icon>done</mat-icon>
-          <span>&nbsp;New Payment</span>
-        </a> -->
-        <!-- <button mat-raised-button (click)="onSubmit()" color="primary">Submit</button>
-        <button mat-raised-button (click)="addPayment()" color="primary">Add new</button> -->
-      </mat-card-actions>
-      </form>
-    </mat-card>
-
-
-
-<!--
-<div class="displayTable">
-  <div class="displayTableCell">
-
-    <div class="px-logo">
-      <a href="https://www.positronx.io" target="_blank">
-        <img src="https://www.positronx.io/wp-content/themes/positronx/img/logo-positronx-white.svg" alt="positronX.io - Learn Full Stack Development">
-      </a>
+<form [formGroup]="form">
+<div class="form-row">
+    <div class="form-group col-md-5">
     </div>
-
-    <div class="authBlock">
+    <div class="form-group col-md-2">
       <h3>Sign In</h3>
-      <div class="formGroup">
-        <input type="text" class="formControl" placeholder="Username" #userName required>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Username" formControlName="username" required>
       </div>
 
-      <div class="formGroup">
-        <input type="password" class="formControl" placeholder="Password" #userPassword required>
+      <div class="form-group">
+        <input type="password" class="form-control" placeholder="Password" formControlName="password" required>
       </div>
 
-      <div class="formGroup">
-        <input type="button" class="btn btnPrimary" value="Log in" (click)="authService.SignIn(userName.value, userPassword.value)">
+      <div class="form-group">
+        <input type="button" class="btn btn-success btn-sm" value="Log in" (click)="signIn()">
       </div>
 
-      <div class="formGroup">
+      <div class="form-group">
         <span class="or"><span class="orInner">Or</span></span>
       </div>
 
-      <div class="formGroup">
-        <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
+      <div class="form-group">
+        <button type="button" class="btn btn-danger" (click)="googleAuth()">
           <i class="fab fa-google-plus-g"></i>
           Log in with Google
         </button>
@@ -99,8 +33,9 @@
     </div>
 
     <div class="redirectToLogin">
-      <span>Don't have an account?<span class="redirect" routerLink="/register-user"> Sign Up</span></span>
+      <span>Don't have an account?</span><a hreh="#" routerLink="/register-user">Sign Up</a>
     </div>
 
   </div>
-</div> -->
+
+</form>
