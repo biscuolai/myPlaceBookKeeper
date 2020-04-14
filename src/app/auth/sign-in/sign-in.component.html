@@ -1,7 +1,72 @@
-<form [formGroup]="form">
+<div class="login-form">
+  <form [formGroup]="form">
+      <h2 class="text-center">Sign in</h2>   
+      <div class="form-group">
+        <div class="input-group">
+
+
+          <div class="input-group-prepend">
+            <div class="input-group-text"><i class="fa fa-user"></i></div>
+          </div>
+
+              <input type="text" class="form-control" name="username" formControlName="username" placeholder="Username" required="required">				
+          </div>
+      </div>
+  <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text"><i class="fa fa-lock"></i></div>
+            </div>
+              <input type="password" class="form-control" formControlName="password" name="password" placeholder="Password" required="required">				
+          </div>
+      </div>        
+      <div class="form-group">
+          <button type="submit" class="btn btn-primary login-btn btn-block">Sign in</button>
+      </div>
+      <div class="clearfix">
+          <a href="#" class="pull-right" routerLink="/forgot-password">Forgot Password?</a>
+      </div>
+  <div class="or-seperator"><i>or</i></div>
+      <p class="text-center">Login with your social media account</p>
+      <div class="text-center social-btn">
+        <a href="#" class="btn btn-danger" (click)="googleAuth()"><i class="fab fa-google-plus-g"></i>&nbsp; Google</a>
+      </div>
+  </form>
+  <p class="text-center text-muted small">Don't have an account? <a href="#" routerLink="/register-user">Sign up here!</a></p>
+</div>
+
+
+<!-- <div class="login-form">
+  <form [formGroup]="form">
+      <h2 class="text-center">Member sign in</h2>       
+      <div class="form-group">
+          <input type="text" class="form-control" formControlName="username" placeholder="Username" required="required">
+      </div>
+      <div class="form-group">
+          <input type="password" class="form-control" formControlName="password" placeholder="Password" required="required">
+      </div>
+      <div class="form-group">
+        <button type="button" class="btn btn-primary btn-block" (click)="signIn()">Log in</button>
+      </div>
+      <div class="form-group"> 
+        <button type="button" class="btn btn-danger btn-block" (click)="googleAuth()">
+          <i class="fab fa-google-plus-g"></i>
+          Log in with Google
+        </button>
+      </div>
+      <div class="clearfix">
+        <a href="#" routerLink="/forgot-password" class="pull-right">Forgot Password?</a>
+      </div>        
+      <div class="clearfix">
+        <span>Still don't have an account?</span><a href="#" routerLink="/register-user" class="pull-right">Create an account</a>
+      </div>        
+  </form>
+  <p class="text-center" routerLink="/register-user"><a href="#">Create an Account</a></p>
+</div>
+ -->
+
+<!-- <form [formGroup]="form">
 <div class="form-row">
-    <div class="form-group col-md-5">
-    </div>
     <div class="form-group col-md-2">
       <h3>Sign In</h3>
       <div class="form-group">
@@ -38,4 +103,4 @@
 
   </div>
 
-</form>
+</form> -->

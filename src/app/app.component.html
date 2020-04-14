@@ -5,8 +5,10 @@
     </a>
 
     <!-- Step 3: Toggle the value of the property when the toggler button is clicked. -->
-    <button class="navbar-toggler navbar-toggler-right" type="button" (click)="isMenuCollapsed = !isMenuCollapsed"
-            [attr.aria-expanded]="!isMenuCollapsed" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler navbar-toggler-right" type="button" 
+        (click)="isMenuCollapsed = !isMenuCollapsed"
+        [attr.aria-expanded]="!isMenuCollapsed" aria-controls="navbarContent" 
+        aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 

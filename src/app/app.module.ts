@@ -34,7 +34,6 @@ import { NgbDateFRParserFormatter } from './utils/ngbDateParserFormatter.adapter
 @NgModule({
   declarations: [
     AppComponent,
-    //MainNavigationComponent,
 
     SignInComponent,
     SignUpComponent,
@@ -55,7 +54,6 @@ import { NgbDateFRParserFormatter } from './utils/ngbDateParserFormatter.adapter
     ReactiveFormsModule,
 
     SharedModule,
-    //MaterialModule,
     ProviderModule,
     PaymentModule,
     SupportBudgetModule,
