@@ -23,7 +23,7 @@ export class SignInComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      username: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
   }
@@ -33,7 +33,7 @@ export class SignInComponent implements OnInit {
 
     if (this.form.valid) {
       console.log('form is valid');
-      this.authService.SignIn(this.form.get('username').value, this.form.get('password').value);
+      this.authService.SignIn(this.form.get('email').value, this.form.get('password').value);
     }
   }
 

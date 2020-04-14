@@ -18,7 +18,7 @@ export class AuthService {
     public afs: AngularFirestore,   // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     public router: Router,
-    public ngZone: NgZone // NgZone service to remove outside scope warning
+    //public ngZone: NgZone // NgZone service to remove outside scope warning
   ) {
     /* Saving user data in localstorage when
     logged in and setting up null when logged out */
@@ -31,14 +31,15 @@ export class AuthService {
         console.log('set user');
         console.log('login successful', this.showMainNavigation);
         this.showMainNavigation.emit('true');
-        //this.router.navigate(['payment']);
-      } else {
-        console.log('login failed/logout', this.showMainNavigation);
-        this.showMainNavigation.emit('false');
-        localStorage.setItem('user', null);
-        JSON.parse(localStorage.getItem('user'));
-        console.log('reset user');
-      }
+        this.router.navigate(['payment']);
+      } 
+      // else {
+      //   console.log('login failed/logout', this.showMainNavigation);
+      //   this.showMainNavigation.emit('false');
+      //   localStorage.setItem('user', null);
+      //   JSON.parse(localStorage.getItem('user'));
+      //   console.log('reset user');
+      // }
     })
   }
 

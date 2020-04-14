@@ -15,7 +15,9 @@ export class AppComponent {
 
   isMenuCollapsed: boolean = true;
 
-  constructor(private authService: AuthService)
+  constructor(
+    private authService: AuthService
+  )
   {
 
   }
@@ -27,6 +29,10 @@ export class AppComponent {
         this.showMainNavigation = (show == 'true')
       }
     );
+  }
+
+  signOut() {
+    this.authService.SignOut();
   }
 
   ngOnDestroy() {
