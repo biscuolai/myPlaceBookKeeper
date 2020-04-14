@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { FileUpload } from './../models/file-upload.model';
 import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
 import { AngularFirestore  } from '@angular/fire/firestore';
+import { UploadTaskSnapshot } from '@angular/fire/storage/interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,8 @@ export class UploadFileService {
   task: AngularFireUploadTask;
 
   percentage: Observable<number>;
-  snapshot: Observable<any>;
   downloadURL: string;
+  snapshot: UploadTaskSnapshot;
 
   constructor(
     private storage: AngularFireStorage,
@@ -26,50 +27,46 @@ export class UploadFileService {
 
     // The storage path
     const fullPath = `${this.basePath}/${file.name}`;
-    //console.log('path', fullPath);
 
     // Reference to the storage bucket
-    //console.log('storage', this.storage);
     const refStorageBucket = this.storage.ref(fullPath);
-    //console.log('storageRef', refStorageBucket);
-
     this.task = refStorageBucket.put(file);
 
     // Progress monitoring
     this.percentage = this.task.percentageChanges();
 
+    this.task.then(snapshot => {
+      this.snapshot = snapshot; // To know when it is done
+      console.log('snapshot task done', this.snapshot);
+
+      const fileUpload = new FileUpload();
+      fileUpload.fullPath = this.snapshot.metadata.fullPath;
+      fileUpload.uploadedDate = new Date();
+      fileUpload.name = this.snapshot.metadata.name;
+      fileUpload.contentType = this.snapshot.metadata.contentType;
+      fileUpload.totalBytes = this.snapshot.totalBytes;
+      console.log('fileupload class before add collection', fileUpload);
+
+      this.saveRecord(file, fileUpload);
+
+    }).catch(snapshot => {
+      this.snapshot = this.task.task.snapshot; // To know whenever there is an error/cancel from user
+      console.log('snapshot error', this.snapshot);
+    });
+
     this.task.snapshotChanges().subscribe(
       (response: any) => {
-        console.log('data', response);
-
+        console.log('data in progress', response);
         progress.percentage = Math.round((response.bytesTransferred / response.totalBytes) * 100);
-
-        if ((response.metadata !== null && progress.percentage == 100) ||
-            (response.task.metadata_ !== null && progress.percentage == 100))
-        {
-          console.log('metadata', response.metadata);
-          //console.log('File available at', response.metadata.fullPath);
-
-          const fileUpload = new FileUpload();
-          fileUpload.fullPath = response.metadata.fullPath;
-          fileUpload.uploadedDate = new Date();
-          fileUpload.name = response.metadata.name;
-          fileUpload.contentType = response.metadata.contentType;
-          fileUpload.totalBytes = response.totalBytes;
-          console.log('fileupload class before add collection', fileUpload);
-
-          this.saveRecord(file, fileUpload);
-        }
     });
   }
 
   saveRecord(file: File, fileUpload: FileUpload) {
     // The storage path
     let fullPath = `${this.basePath}/${file.name}`;
-    //console.log('path', fullPath);
 
     // Reference to the storage bucket
-    console.log('storage', this.storage);
+    console.log('inside save revord', this.storage);
     const refStorageBucket = this.storage.ref(fullPath);
 
     refStorageBucket.getDownloadURL().subscribe(
@@ -83,10 +80,6 @@ export class UploadFileService {
 
         this.db.collection(`${this.basePath}`).add(data);
       });
-  }
-
-  isActive(snapshot){
-    return snapshot.state === 'running' && snapshot.bytesTransferred < snapshot.totalBytes;
   }
 
   getFileUploads() {
