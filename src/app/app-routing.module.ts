@@ -9,7 +9,7 @@ import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.
 import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/sign-in', pathMatch: 'full'},
+  { path: '', redirectTo: '/payment', pathMatch: 'full'},
   { path: 'sign-in', component: SignInComponent},
   { path: 'register-user', component: SignUpComponent},
   { path: 'forgot-password', component: ForgotPasswordComponent},
