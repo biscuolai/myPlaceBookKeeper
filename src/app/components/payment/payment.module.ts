@@ -1,3 +1,4 @@
+import { ngBootstrapModule } from './../../shared/modules/ng-bootstrap.module';
 import { UploadFileService } from './../file-upload/services/file-upload.service';
 import { ListUploadComponent } from './../file-upload/file-upload-list/file-upload-list.component';
 import { NgModule } from '@angular/core';
@@ -27,6 +28,7 @@ import { FormUploadComponent } from '../file-upload/file-upload-form/file-upload
   imports: [
     CommonModule,
     //MaterialModule,
+    ngBootstrapModule,
     SharedModule,
     FormsModule,
     ReactiveFormsModule,

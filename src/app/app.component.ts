@@ -13,6 +13,8 @@ export class AppComponent {
   showMainNavigation: boolean = false;
   subscription: Subscription;
 
+  isMenuCollapsed: boolean = true;
+
   constructor(private authService: AuthService)
   {
 

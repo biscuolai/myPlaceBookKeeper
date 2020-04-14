@@ -1,9 +1,24 @@
 <form [formGroup]="form">
   <div class="form-row">
+
     <div class="form-group col-md-3">
+      <label for="name">Date of Support</label>
+      <div class="input-group">
+        <input class="form-control" placeholder="dd/mm/yyyy"
+            name="a" ngbDatepicker #date="ngbDatepicker" formControlName="date">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar fa fa-calendar"
+            (click)="date.toggle()" type="button"></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="form-group col-md-3">
       <label for="abn">Date of Support</label>
       <input type="text" formControlName="date" class="form-control" id="date">
-    </div>
+    </div> -->
+
+
     <div class="form-group col-md-9">
       <label for="name">Description</label>
       <input type="text" formControlName="description" class="form-control" id="description">

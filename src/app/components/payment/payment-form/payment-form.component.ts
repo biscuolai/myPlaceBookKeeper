@@ -1,7 +1,3 @@
-import { SupportBudgetService } from '../../support-budget/service/support-budget.service';
-import { ProviderService } from '../../provider/services/provider.service';
-import { Provider } from '../../provider/models/provider.model';
-import { Payment } from '../models/payment.model';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -9,23 +5,16 @@ import { PaymentService } from 'src/app/components/payment/services/payment.serv
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormValidators } from 'src/app/utils/FormValidators';
 
-// Datepicker libraries
-//import { DateAdapter, MAT_DATE_FORMATS } from "@angular/material/core";
-import { AppDateAdapter, APP_DATE_FORMATS} from '../../../utils/date.adapter';
 import { SupportBudget } from './../../support-budget/model/support-budget.model';
+import { SupportBudgetService } from '../../support-budget/service/support-budget.service';
+import { ProviderService } from '../../provider/services/provider.service';
+import { Provider } from '../../provider/models/provider.model';
+import { Payment } from '../models/payment.model';
 
 @Component({
   selector: 'app-payment-form',
   templateUrl: './payment-form.component.html',
   styleUrls: ['./payment-form.component.css'],
-  // providers: [
-  //   {
-  //       provide: DateAdapter, useClass: AppDateAdapter
-  //   },
-  //   {
-  //       provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS
-  //   }
-  // ]
 })
 export class PaymentFormComponent implements OnInit {
 
@@ -163,8 +152,10 @@ export class PaymentFormComponent implements OnInit {
   private resetForm() {
     this.form.reset();
 
+    let today = new Date();
+
     this.form.patchValue({
-      date: new Date(),
+      date: today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear(),
       description: '',
       amount: 0,
       price: 0,
@@ -185,8 +176,8 @@ export class PaymentFormComponent implements OnInit {
 
     // Making the copy of the form and assigning it to the paymentData.
     let paymentData = Object.assign({}, this.form.value);
-
-    console.log(this.form.value);
+    let date = this.form.get('date').value;
+    paymentData.date = new Date(date.year + '/' + date.month + '/' + date.day);
 
     // Does the insert operation.
     if (this.paramId == null) {
