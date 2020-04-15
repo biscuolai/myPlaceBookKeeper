@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { UploadFileService } from '../services/file-upload.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'file-upload-form',
@@ -8,22 +10,41 @@ import { UploadFileService } from '../services/file-upload.service';
 })
 export class FormUploadComponent implements OnInit {
 
-  selectedFiles: FileList;
-  file: File;
+  selectedFiles: FileList = null;
   progress: { percentage: number } = { percentage: 0 };
+  showProgressBar: boolean = false;
+  form: FormGroup;
+  @ViewChild('labelImport')
+  labelImport: ElementRef;
+  subscription: Subscription;
 
   constructor(private uploadService: UploadFileService) { }
 
   ngOnInit() {
-  }
+    this.form = new FormGroup({
+      importFile: new FormControl('', Validators.required)
+   });
 
-  selectFile(event) {
-    this.selectedFiles = event.target.files;
+   this.subscription = this.uploadService.showProgressBar.subscribe((show) => {
+      this.showProgressBar = show;
+   });
   }
 
   upload() {
-    this.file = this.selectedFiles.item(0);
+    // multiple files upload
+    Array.from(this.selectedFiles).map(file => {
+      this.uploadService.pushFileToStorage(file, this.progress);
+    });
+
     this.selectedFiles = undefined;
-    this.uploadService.pushFileToStorage(this.file, this.progress);
+    this.labelImport.nativeElement.innerText = '';
+  }
+  
+  onFileChange(files: FileList) {
+    this.labelImport.nativeElement.innerText = Array.from(files)
+      .map(f => f.name)
+      .join(', ');
+
+    this.selectedFiles = files;
   }
 }

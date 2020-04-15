@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Provider } from '../models/provider.model';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class ProviderService {
-  constructor(private firestore: AngularFirestore) { }
+  constructor(
+    private firestore: AngularFirestore,
+    private router: Router
+  ) { }
 
   getProviders() {
     return this.firestore.collection('providers').snapshotChanges();
@@ -24,5 +28,6 @@ export class ProviderService {
 
   deleteProvider(providerId: string){
     this.firestore.doc('providers/' + providerId).delete();
+    this.router.navigate(['/provider']);
   }
 }

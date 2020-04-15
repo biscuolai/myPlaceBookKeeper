@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 import { FileUpload } from './../models/file-upload.model';
 import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
@@ -17,6 +17,7 @@ export class UploadFileService {
   percentage: Observable<number>;
   downloadURL: string;
   snapshot: UploadTaskSnapshot;
+  showProgressBar = new EventEmitter();
 
   constructor(
     private storage: AngularFireStorage,
@@ -49,15 +50,18 @@ export class UploadFileService {
 
       this.saveRecord(file, fileUpload);
 
+      this.showProgressBar.emit(false);
+
     }).catch(snapshot => {
       this.snapshot = this.task.task.snapshot; // To know whenever there is an error/cancel from user
-      console.log('snapshot error', this.snapshot);
+      console.log('snapshot error', snapshot);
     });
 
     this.task.snapshotChanges().subscribe(
       (response: any) => {
         console.log('data in progress', response);
         progress.percentage = Math.round((response.bytesTransferred / response.totalBytes) * 100);
+        this.showProgressBar.emit(progress.percentage > 0);
     });
   }
 

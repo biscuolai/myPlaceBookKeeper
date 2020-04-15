@@ -1,6 +1,5 @@
 <form [formGroup]="form">
   <div class="form-row">
-
     <div class="form-group col-md-3">
       <label for="name">Date of Support</label>
       <div class="input-group">
@@ -12,13 +11,6 @@
         </div>
       </div>
     </div>
-
-    <!-- <div class="form-group col-md-3">
-      <label for="abn">Date of Support</label>
-      <input type="text" formControlName="date" class="form-control" id="date">
-    </div> -->
-
-
     <div class="form-group col-md-9">
       <label for="name">Description</label>
       <input type="text" formControlName="description" class="form-control" id="description">
@@ -56,8 +48,6 @@
       <input class="btn btn-primary btn-sm" type="button" value="New Payment" (click)="addPayment()">
     </div>
   </div>
-  <!-- <input type="button" type="submit" class="btn btn-primary" (click)="onSubmit()">Save</button>
-  <button type="submit" class="btn btn-primary" (click)="addProvider()">New Provider</button> -->
   <div class="error" *ngIf="message">
     <h5 class="text-success">{{ message }}</h5>
   </div>
@@ -71,100 +61,3 @@
 <file-upload-list></file-upload-list>
 
 <app-form-debug [form]="form"></app-form-debug>
-
-
-<!-- <form class="example-form" [formGroup]="form">
-  <mat-card class="shipping-card">
-    <mat-card-header>
-      <mat-card-title>Payment Information</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <div class="example-container">
-        <div class="row">
-          <div class="col">
-            <mat-form-field class="full-width">
-              <input matInput [matDatepicker]="picker" formControlName="date" placeholder="date">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-              <mat-error *ngIf="checkValidTouched('date')">Date is required</mat-error>
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <mat-form-field class="full-width">
-              <input matInput formControlName="description" placeholder="description">
-              <mat-hint align="end">Please enter description</mat-hint>
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <mat-form-field class="full-width">
-              <input matInput formControlName="amount" placeholder="amount">
-              <mat-hint align="end">Please enter amount</mat-hint>
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <mat-form-field class="full-width">
-              <input matInput formControlName="price" placeholder="price">
-              <mat-hint align="end">Please enter price</mat-hint>
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-
-            <mat-form-field>
-              <mat-label>Please select provider</mat-label>
-              <mat-select formControlName="provider">
-                <mat-option *ngFor="let provider of providerList" [value]="provider.id">
-                  {{provider.name}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-
-
-            <mat-form-field>
-              <mat-label>Please select support budget</mat-label>
-              <mat-select formControlName="supportBudget">
-                <mat-option *ngFor="let supportBudget of supportBudgetList" [value]="supportBudget.id">
-                  {{supportBudget.category}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-        </div>
-      </div>
-    </mat-card-content>
-    <mat-card-actions>
-      <a color="primary" mat-raised-button (click)="onSubmit()">
-        <mat-icon>done</mat-icon>
-        <span>&nbsp;Save</span>
-      </a>
-      <a color="primary" mat-raised-button (click)="addPayment()">
-        <mat-icon>done</mat-icon>
-        <span>&nbsp;New Payment</span>
-      </a>
-    </mat-card-actions>
-  </mat-card>
-  <div class="error" *ngIf="message">
-    <h5 class="text-success">{{ message }}</h5>
-    </div>
-</form>
-
-<file-upload-form></file-upload-form>
-
-<br/>
-<br/>
-
-<file-upload-list></file-upload-list>
-
-<app-form-debug [form]="form"></app-form-debug> -->

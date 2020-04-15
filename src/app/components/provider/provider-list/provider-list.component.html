@@ -10,10 +10,11 @@
             <td>{{providerInfo.abn}}</td>
             <td>{{providerInfo.name}}</td>
             <td>
-              <input class="btn btn-primary btn-sm" type="button" [routerLink]="['/provider/', providerInfo.id]" value="Edit"/>
+              <button class="btn btn-primary btn-sm" type="button" [routerLink]="['/provider/', providerInfo.id]"><i class="fas fa-edit"></i></button>
+                <!-- <input class="btn btn-primary btn-sm" type="button" [routerLink]="['/provider/', providerInfo.id]" value="Edit"/> -->
             </td>
             <td>
-              <input class="btn btn-danger btn-sm" type="button" (click)="onDelete(providerInfo)" value="Delete"/>
+              <button class="btn btn-danger btn-sm" type="button" (click)="onDelete(providerInfo)"><i class="fas fa-trash"></i></button>
             </td>
         </tr>
     </tbody>
