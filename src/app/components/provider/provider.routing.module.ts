@@ -7,9 +7,8 @@ import { RecordNotFoundComponent } from './../../shared/components/record-not-fo
 
 const providerRoutes: Routes = [
   { path: '', component: ProviderFormComponent},
-  { path: ':id', component: ProviderFormComponent },
   { path: 'list', component: ProviderListComponent },
-  { path: 'notfound', component: RecordNotFoundComponent }
+  { path: ':id', component: ProviderFormComponent },
 ];
   // { path: 'notfound', component: RecordNotFoundComponent },
         // { path: 'dashboard', component: MainDashboardComponent },

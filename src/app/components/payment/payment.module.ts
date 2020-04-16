@@ -16,7 +16,6 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import { SharedModule } from '../../shared/components/shared.module';
-//import { MaterialModule } from '../../shared/modules/material.module';
 import { FormUploadComponent } from '../file-upload/file-upload-form/file-upload-form.component';
 
 @NgModule({
@@ -27,7 +26,6 @@ import { FormUploadComponent } from '../file-upload/file-upload-form/file-upload
   ],
   imports: [
     CommonModule,
-    //MaterialModule,
     ngBootstrapModule,
     SharedModule,
     FormsModule,
